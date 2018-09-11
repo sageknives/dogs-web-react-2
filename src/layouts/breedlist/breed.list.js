@@ -12,10 +12,12 @@ class Breedlist extends Component {
     loading: true
   };
 
+  // requests new breed list on load
   componentDidMount() {
     this.refreshBreedList();
   }
 
+  //gets and sets breeds from service
   refreshBreedList() {
     this._asyncRequest = dogService.getBreeds()
       .then(
@@ -30,12 +32,14 @@ class Breedlist extends Component {
       })
   }
 
+  // cancels any on exit
   componentWillUnmount() {
     if (this._asyncRequest) {
       this._asyncRequest.cancel();
     }
   }
 
+  // shows loader until breeds have been set, shows error refresh button on error
   render() {
     if (this.state.breeds === null && this.state.loading === true) {
       return <Loader />
@@ -44,6 +48,7 @@ class Breedlist extends Component {
       return <CenteredButton text="Retry" click={() => this.refreshBreedList()} />
     }
     else {
+      //creates a list of breed items from breeds prop
       const listItems = [];
       this.state.breeds.forEach((breed, index) => {
         listItems.push(<BreedListItem name={breed.name} key={breed.name + index} />);

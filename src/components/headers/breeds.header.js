@@ -26,13 +26,9 @@ class BreedsHeader extends Component {
     this.props.history.goBack();
   }
 
-
+  //sets state on load
   componentDidMount() {
     this.setState({ showBackButton: this.props.showBackButton, title: this.props.title })
-  }
-
-  componentWillUnmount() {
-
   }
 
   render() {

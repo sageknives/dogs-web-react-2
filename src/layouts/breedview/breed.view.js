@@ -11,18 +11,21 @@ class Breedview extends Component {
     breedImageUrl: null,
   };
 
+  //gets and sets breed name and requests an image on load
   componentDidMount() {
     let name = this.props.match.params.id;
     this.setState({ breedName: name })
     this.getBreedImage(name);
   }
 
+  //cancels any request in progress on exit
   componentWillUnmount() {
     if (this._asyncRequest) {
       this._asyncRequest.cancel();
     }
   }
 
+  //gets a different breed image
   getBreedImage(name) {
     this._asyncRequest = dogService.getBreedImage(name)
       .then(
@@ -35,6 +38,7 @@ class Breedview extends Component {
       })
   }
 
+  //Shows loader until image url has been downloaded
   render() {
     if (this.state.breedImageUrl === null) {
       return <Loader />

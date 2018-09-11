@@ -1,5 +1,6 @@
 const apiURL = 'https://dog.ceo/api/';
 
+//returns a list of breeds
 const getBreeds = () => {
   const url = `${apiURL}breeds/list/all`;
   const options = {
@@ -20,11 +21,11 @@ const getBreeds = () => {
         throw new Error("No Breeds Found");
       }
     }).catch(error => {
-      console.error('Error: ', error);
       return Promise.reject(error);
     });
 };
 
+//returns a breed image url from a breed name
 const getBreedImage = (name) => {
   const url = `${apiURL}breed/${name}/images/random`;
   const options = {
@@ -40,7 +41,6 @@ const getBreedImage = (name) => {
         throw new Error("No Image Found");
       }
     }).catch(error => {
-      console.error('Error: ', error);
       return Promise.reject(error);
     });
 };
