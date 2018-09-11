@@ -1,0 +1,15 @@
+.breedListItem {
+  height: 56px;
+  line-height: 56px;
+  width: 100vw;
+  padding-left: 16px;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}
+
+.breedListItem a {
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
