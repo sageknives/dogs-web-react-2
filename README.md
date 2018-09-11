@@ -1,4 +1,4 @@
-### Available Scripts
+### `Available Scripts`
 
 ## `To Start`
 Run npm install 
